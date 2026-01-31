@@ -168,7 +168,7 @@ class ProfitHunterUltimate:
             headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
             }
-            response = requests.get(url, params=params, headers=headers, timeout=10)
+            response = requests.get(url, params=params, headers=headers, timeout=3)
             if response.status_code == 200:
                 data = response.json()
                 return [item[0] for item in data[1] if isinstance(item, list)]
@@ -199,7 +199,7 @@ class ProfitHunterUltimate:
                         "avg_interest": recent,
                         "is_rising": recent > 50
                     })
-                time.sleep(random.uniform(1, 3))  # 避免限流
+                time.sleep(random.uniform(0.5, 1))  # 避免限流
             except Exception as e:
                 continue
         
@@ -353,7 +353,7 @@ class ProfitHunterUltimate:
                     }
                     
                     page.close()
-                    time.sleep(random.uniform(2, 5))  # 避免被封
+                    time.sleep(random.uniform(1, 2))  # 避免被封
                     
                 except Exception as e:
                     results[keyword] = self._simulate_serp_analysis(keyword)
