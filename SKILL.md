@@ -1,6 +1,6 @@
 ---
 name: profit-hunter-ultimate
-description: "终极版蓝海关键词自动猎取系统。整合 Google Autocomplete (Alphabet Soup)、Google Trends 二级深挖、GPTs 基准对比、用户意图深挖、Playwright SERP 降维打击分析。自动识别竞争度、痛点强度、用户真正意图、商业价值。每 6 小时自动运行，输出高质量'立即做'机会清单。核心升级：降维打击检测（前3名有论坛=机会）、用户意图分析（不只看信号，还看用户真正想做什么）、显示 GPTs 热度比、列全关键词（不采样）。Use when: 'find profitable keywords', 'blue ocean opportunities', 'serp analysis', 'user intent mining', '/hunt-ultimate' command."
+description: "终极版蓝海关键词自动猎取系统。整合 Google Autocomplete (Alphabet Soup)、Google Trends 二级深挖、GPTs 基准对比、用户意图深挖、Playwright SERP 降维打击分析、Reddit 痛点挖掘、真实需求验证。自动识别竞争度、痛点强度、用户真正意图、商业价值。每天 4 次深度运行，输出高质量'立即做'机会清单。核心功能：降维打击检测、用户意图分析、Reddit 痛点验证、HTML 报告生成。Use when: 'find profitable keywords', 'blue ocean opportunities', 'serp analysis', 'user intent mining', '/hunt-ultimate' command."
 license: MIT
 ---
 
@@ -11,58 +11,55 @@ license: MIT
 ```bash
 cd /root/.nvm/versions/node/v22.22.0/lib/node_modules/clawdbot/skills/profit-hunter-ultimate/scripts
 
-# 快速测试（30个关键词）
-python test_ultimate.py
+# 安装依赖
+pip install -r ../requirements.txt
 
-# 完整运行
-python profit_hunter.py --trends --playwright --max 500
+# 快速测试
+python3 test_offline.py
 
-# 定时任务（每6小时）
-python scheduler.py
+# 完整挖掘（1小时）
+python3 deep_digger.py --hours 1 --keywords 200
+
+# 深度需求验证（Reddit + SERP）
+python3 profit_hunter_deep_validation.py --input data/ultimate_final_results.csv --max 20
+
+# 定时运行（每天 4 次）
+python3 scheduler_deep.py
 ```
 
 ## 脚本说明
 
-### scripts/profit_hunter.py
-主分析脚本，支持以下参数：
+### scripts/deep_digger.py
+深度挖掘版，每轮分析 200 个关键词，深入验证需求。
 
 | 参数 | 说明 | 默认值 |
 |-----|------|-------|
-| `--trends` | 启用 Google Trends 分析 | False |
-| `--playwright` | 启用 Playwright SERP 分析 | False |
-| `--max` | 最大关键词数量 | 500 |
-| `--seed` | 种子词，逗号分隔 | 从 words.md 读取 |
+| `--hours` | 挖掘时长（小时） | 1 |
+| `--keywords` | 每小时关键词数 | 200 |
 
-**示例:**
-```bash
-python profit_hunter.py                           # 快速模式
-python profit_hunter.py --trends                  # + Trends
-python profit_hunter.py --trends --playwright     # 终极版
-python profit_hunter.py --max 100 --seed "ai,ml"  # 自定义
-```
+### scripts/profit_hunter_ultimate.py
+完整版，支持 Google Trends 和 Playwright。
 
-### scripts/scheduler.py
-定时调度器，支持以下参数：
+| 参数 | 说明 |
+|-----|------|
+| `--trends` | 启用 Google Trends 分析 |
+| `--playwright` | 启用 Playwright SERP 分析（慢） |
+| `--max` | 最大候选词数量 |
+
+### scripts/profit_hunter_deep_validation.py
+深度需求验证，集成 Reddit 痛点挖掘 + SERP 分析。
 
 | 参数 | 说明 | 默认值 |
 |-----|------|-------|
-| `--interval` | 运行间隔（小时） | 6 |
-| `--immediate` | 立即运行一次 | False |
-| `--run-once` | 只运行一次，不循环 | False |
+| `--input` | 输入 CSV 文件 | 必需 |
+| `--max` | 最大验证数量 | 20 |
 
-**示例:**
-```bash
-python scheduler.py                    # 每6小时运行
-python scheduler.py --interval 12      # 每12小时
-python scheduler.py --immediate        # 立即+循环
-python scheduler.py --run-once         # 只运行一次
-```
+**输出：**
+- `data/validation/deep_validation_*.csv`
+- `data/reports/deep_validation_report_*.html`
 
-### scripts/test_ultimate.py
-快速测试脚本，使用默认参数测试完整流程。
-
-### words.md
-种子词配置文件，每行一个关键词。系统会基于这些词通过 Alphabet Soup 扩展出大量候选词。
+### scripts/scheduler_deep.py
+定时调度器，每天运行 4 次（00:00, 06:00, 12:00, 18:00）。
 
 ## 核心理念
 
@@ -75,38 +72,63 @@ python scheduler.py --run-once         # 只运行一次
 
 **唯一目标**：找到那些**前3名是论坛/博客**的关键词，做一个工具站轻松占据首页。
 
-## 评分算法
+## 深度验证系统（V3.0 新增）
+
+### Reddit 痛点挖掘
+
+```python
+# 痛点信号词
+PAIN_KEYWORDS = [
+    "how to", "can't", "cannot", "problem", "issue", "help",
+    "broken", "not working", "struggling", "frustrating", 
+    "annoying", "difficult", "hard to", "need", "want",
+    "alternative", "better than", "instead of", "wish",
+    "there should be", "why is there no", "tired of"
+]
+```
+
+**输出：**
+- `total_mentions`: Reddit 讨论数
+- `pain_signals`: 痛点信号列表
+- `real_complaints`: 真实用户抱怨
+- `validation_score`: 验证分数 (0-100)
+
+### Google SERP 市场分析
+
+```python
+# 市场空白检测
+if forum_results_count >= 3 and tool_results_count < 5:
+    has_gap = True  # 有需求但缺工具
+```
+
+**输出：**
+- `tool_results_count`: 工具类结果数
+- `forum_results_count`: 论坛结果数
+- `commercial_intent`: 商业意图强度
+- `has_gap`: 是否存在市场空白
+
+### 综合评分公式
 
 ```
-Final Score = Trend×25% + Intent×35% + Competition×25% + Buildability×15%
+验证分数 = Reddit分 × 50% + SERP分 × 30% + 商业意图 × 20%
 ```
 
-| 评分范围 | 决策 |
-|---------|------|
-| ≥ 65 | 🔴 BUILD NOW |
-| 45-65 | 🟡 WATCH |
-| < 45 | ❌ DROP |
+| 评分范围 | 决策 | 含义 |
+|---------|------|------|
+| ≥ 80 | 🟢 极品 | 立即开发 |
+| 60-80 | 🟡 优质 | 值得做 |
+| < 60 | 🔴 放弃 | 需求不足 |
 
 ## 输出文件
 
 ```
 data/
-├── ultimate_final_results.csv  # 最终结果（最重要）
-├── step0_suggest_keywords.csv  # Google Suggest 原始数据
-├── step1_trends_deep.csv       # Trends 飙升词
-├── step2_gpts_comparison.csv   # GPTs 对比数据
-└── step3_serp_analysis.csv     # SERP 竞争分析
-```
-
-## 安装依赖
-
-```bash
-# 基础依赖
-pip install requests pandas pytrends schedule openpyxl
-
-# 可选：Playwright（用于真实 SERP 分析）
-pip install playwright
-playwright install chromium
+├── ultimate_final_results.csv     # 基础挖掘结果
+├── deep_digger_results.csv        # 深度挖掘结果
+├── validation/
+│   └── deep_validation_*.csv      # 深度验证结果
+└── reports/
+    └── deep_validation_report_*.html  # HTML 可视化报告
 ```
 
 ## 关键字段说明
@@ -116,15 +138,16 @@ playwright install chromium
 | `keyword` | 关键词 | calculator online |
 | `final_score` | 最终评分 | 80.8 |
 | `decision` | 决策 | 🔴 BUILD NOW |
-| `avg_ratio` | vs GPTs 热度比 | 17.2% |
-| `user_intent` | 用户意图类型 | calculate, convert |
-| `user_goal` | 用户真正想做什么 | 复合需求：calculate + convert |
-| `intent_clarity` | 意图清晰度 | 高/中/低 |
-| `降维打击` | 是否有降维打击机会 | True/False |
+| `validation_score` | 验证分数 | 76/100 |
+| `reddit_mentions` | Reddit 讨论数 | 23 |
+| `pain_signals` | 痛点信号数 | 8 |
+| `has_market_gap` | 市场空白 | True |
+| `user_intent` | 用户意图 | calculate, convert |
+| `user_goal` | 用户真正想做什么 | 计算数值 |
 
 ## 降维打击原理
 
-如果 Google 前3名有 Reddit/Quora/Medium，但没有大厂网站，这就是**降维打击机会**：
+如果 Google 前 3 名有 Reddit/Quora/Medium，但没有大厂网站，这就是**降维打击机会**：
 
 ```
 场景：aura calculator
@@ -135,33 +158,35 @@ playwright install chromium
 
 ## 版本对比
 
-| 特性 | 基础版 | ULTIMATE |
-|-----|-------|----------|
-| Autocomplete | ✅ | ✅ 优化 |
-| Trends | ❌ | ✅ 二级深挖 |
-| GPTs 对比 | ❌ | ✅ 必选 |
-| SERP 分析 | 规则 | Playwright |
-| 评分阈值 | 75 | 65 |
-| 立即做词数 | 0 | 29+ |
+| 特性 | 基础版 | ULTIMATE | Deep Validation |
+|-----|-------|----------|-----------------|
+| Autocomplete | ✅ | ✅ | ✅ |
+| Trends | ❌ | ✅ 二级深挖 | ✅ |
+| GPTs 对比 | ❌ | ✅ 必选 | ✅ |
+| SERP 分析 | 规则 | Playwright | ✅ |
+| Reddit 痛点 | ❌ | ❌ | ✅ |
+| HTML 报告 | ❌ | ❌ | ✅ |
+| 评分阈值 | 75 | 65 | 80 (验证) |
+| 运行频率 | 手动 | 6 小时 | 每天 4 次 |
 
 ## 故障排查
 
-**问题：没有"立即做"的词**
-- 降低 `--max` 参数值
-- 更换种子词（words.md）
-- 启用 `--trends` 和 `--playwright`
-
-**问题：Google Trends 限频**
-- 减少种子词数量
-- 增加运行间隔
-- 使用 `--run-once` 模式
-
-**问题：Playwright 安装失败**
-```bash
-pip install playwright
-playwright install chromium
-# 或不使用 --playwright 参数
+**问题：Reddit API 限频**
+```python
+# 增加延迟
+VALIDATION_CONFIG = {
+    "DELAY_BETWEEN_REQUESTS": 3,  # 从 2 改为 3
+}
 ```
+
+**问题：没有真实需求**
+- 启用 `--trends` 获取飙升词
+- 增加 `--keywords` 数量
+- 检查种子词质量
+
+**问题：HTML 报告打不开**
+- 确保编码为 UTF-8
+- 用浏览器打开
 
 ## 核心理念（再次强调）
 
@@ -169,7 +194,7 @@ playwright install chromium
 不做大词！不做大词！不做大词！
 
 大词 = calculator, converter → 竞争激烈 ❌
-小词 + 降维打击 = aura calculator (前3名是 Reddit) → 轻松占据首页 ✅
+小词 + 降维打击 = aura calculator (前 3 名是 Reddit) → 轻松占据首页 ✅
 ```
 
 ---
