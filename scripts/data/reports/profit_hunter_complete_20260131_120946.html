@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Hunter ULTIMATE - 完整分析报告</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #333; line-height: 1.8; padding: 20px; }
+        .container { max-width: 1600px; margin: 0 auto; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 80px rgba(0,0,0,0.4); }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); color: white; padding: 50px; text-align: center; }
+        .header h1 { font-size: 2.8em; margin-bottom: 15px; }
+        .content { padding: 40px; }
+        .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .stat-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px 25px; border-radius: 15px; text-align: center; }
+        .stat-card .number { font-size: 3em; font-weight: bold; }
+        .stat-card .label { font-size: 1.1em; }
+        .section-title { font-size: 2em; margin: 40px 0 25px 0; padding-bottom: 15px; border-bottom: 4px solid; border-image: linear-gradient(90deg, #667eea, #764ba2) 1; }
+        .insights-box { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; border-radius: 15px; border-left: 5px solid #667eea; }
+        .insights-box li { margin: 15px 0; font-size: 1.1em; }
+        .opportunity-card { background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border: 2px solid #e9ecef; border-left: 6px solid; padding: 30px; margin: 25px 0; border-radius: 12px; }
+        .opportunity-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+        .keyword-badge { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 12px 25px; border-radius: 10px; font-size: 1.3em; font-weight: bold; }
+        .score-badge { padding: 12px 25px; border-radius: 10px; font-size: 1.2em; font-weight: bold; color: white; }
+        .drop-badge { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin: 20px 0; }
+        .metric { background: #f8f9fa; padding: 15px 20px; border-radius: 10px; }
+        .metric-label { font-size: 0.85em; color: #666; }
+        .metric-value { font-weight: bold; font-size: 1.1em; }
+        .evidence-box { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-left: 4px solid #4CAF50; padding: 20px 25px; margin: 20px 0; border-radius: 8px; }
+        .reasoning-box { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-left: 4px solid #2196F3; padding: 20px 25px; margin: 20px 0; border-radius: 8px; }
+        .suggestion-box { background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-left: 4px solid #ff9800; padding: 20px 25px; margin: 20px 0; border-radius: 8px; }
+        .competitors-box { background: #f5f5f5; padding: 15px 20px; border-radius: 8px; margin: 15px 0; }
+        .pain-tag { background: #ffebee; color: #c62828; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; }
+        .data-table { width: 100%; border-collapse: collapse; margin: 30px 0; font-size: 0.95em; }
+        .data-table th { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 15px; text-align: left; }
+        .data-table td { padding: 12px 15px; border-bottom: 1px solid #e9ecef; }
+        .action-section { background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 35px; border-radius: 15px; margin: 30px 0; }
+        .action-list li { margin: 12px 0; font-size: 1.1em; }
+        .footer { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 30px 40px; text-align: center; }
+        .footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Profit Hunter ULTIMATE</h1>
+            <p>蓝海关键词完整分析报告 | 生成时间: 2026-01-31 12:09:46</p>
+        </div>
+        <div class="content">
+            <div class="stats-row">
+                <div class="stat-card"><div class="number">200</div><div class="label">分析关键词</div></div>
+                <div class="stat-card"><div class="number">11</div><div class="label">真实需求</div></div>
+                <div class="stat-card"><div class="number">0</div><div class="label">降维打击机会</div></div>
+                <div class="stat-card"><div class="number">41.7</div><div class="label">平均评分</div></div>
+                <div class="stat-card"><div class="number">0</div><div class="label">推荐机会</div></div>
+            </div>
+            
+            <h2 class="section-title">核心发现与关键洞察</h2>
+            <div class="insights-box">
+                <ul>
+                    <li><strong>扩展种子词策略：</strong>从传统的 calculator/converter 扩展到 50+ 领域，包括 mortgage、gpa、bmi、timestamp、base64、regex 等细分市场</li>
+                    <li><strong>流量筛选机制：</strong>采用 GPTs 流量比 >= 5% 作为筛选门槛，确保只保留有实际搜索量的关键词</li>
+                    <li><strong>降维打击机会：</strong>发现 0 个关键词符合"论坛多、工具少"特征，是理想切入点</li>
+                    <li><strong>细分市场优势：</strong>gpa、mortgage、calorie、timestamp 等细分领域竞争度低、需求明确</li>
+                </ul>
+            </div>
+            
+            <h2 class="section-title">TOP 10 蓝海机会详情</h2>
+
+            <div class="opportunity-card" style="border-left-color: #FF9800;">
+                <div class="opportunity-header">
+                    <span class="keyword-badge">1. retirement free online</span>
+                    <div>
+                        <span class="score-badge" style="background: #FF9800;">⭐ 60.0/100</span>
+                        <span class="score-badge ">🟡 WATCH</span>
+                    </div>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric"><div class="metric-label">用户意图</div><div class="metric-value">explore</div></div>
+                    <div class="metric"><div class="metric-label">用户目标</div><div class="metric-value">浏览了解</div></div>
+                    <div class="metric"><div class="metric-label">意图清晰度</div><div class="metric-value">高</div></div>
+                    <div class="metric"><div class="metric-label">搜索量</div><div class="metric-value">高 (~10K/月)</div></div>
+                    <div class="metric"><div class="metric-label">需求强度</div><div class="metric-value">强</div></div>
+                    <div class="metric"><div class="metric-label">竞争度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">GPTs 热度</div><div class="metric-value">18.8%</div></div>
+                    <div class="metric"><div class="metric-label">Reddit 评分</div><div class="metric-value">92</div></div>
+                </div>
+                <div style="margin-top:10px;"><span style="color:#666;">痛点:</span> <span class="pain-tag">无明显痛点</span></div>
+                <div class="evidence-box"><strong>需求验证来源:</strong> Reddit 多条讨论 | Google 搜索量稳定 | 细分市场需求增长</div>
+                <div class="competitors-box"><strong>前 3 名竞争对手:</strong> stackoverflow.com, github.com, medium.com</div>
+                <div class="reasoning-box"><strong>判断理由:</strong> GPTs 流量比达标 (18.8%) | Reddit 痛点讨论活跃 (92) | 细分市场，竞争度低</div>
+                <div class="suggestion-box"><strong>开发建议:</strong> 细分市场，差异化竞争 | 免费在线工具，用户增长快</div>
+            </div>
+
+            <div class="opportunity-card" style="border-left-color: #FF9800;">
+                <div class="opportunity-header">
+                    <span class="keyword-badge">2. calorie without login</span>
+                    <div>
+                        <span class="score-badge" style="background: #FF9800;">⭐ 58.2/100</span>
+                        <span class="score-badge ">🟡 WATCH</span>
+                    </div>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric"><div class="metric-label">用户意图</div><div class="metric-value">explore</div></div>
+                    <div class="metric"><div class="metric-label">用户目标</div><div class="metric-value">浏览了解</div></div>
+                    <div class="metric"><div class="metric-label">意图清晰度</div><div class="metric-value">高</div></div>
+                    <div class="metric"><div class="metric-label">搜索量</div><div class="metric-value">中 (~3K/月)</div></div>
+                    <div class="metric"><div class="metric-label">需求强度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">竞争度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">GPTs 热度</div><div class="metric-value">7.0%</div></div>
+                    <div class="metric"><div class="metric-label">Reddit 评分</div><div class="metric-value">92</div></div>
+                </div>
+                <div style="margin-top:10px;"><span style="color:#666;">痛点:</span> <span class="pain-tag">无明显痛点</span></div>
+                <div class="evidence-box"><strong>需求验证来源:</strong> Reddit 多条讨论 | 细分市场需求增长</div>
+                <div class="competitors-box"><strong>前 3 名竞争对手:</strong> stackoverflow.com, github.com, medium.com</div>
+                <div class="reasoning-box"><strong>判断理由:</strong> GPTs 流量比达标 (7.0%) | Reddit 痛点讨论活跃 (92) | 细分市场，竞争度低</div>
+                <div class="suggestion-box"><strong>开发建议:</strong> 细分市场，差异化竞争</div>
+            </div>
+
+            <div class="opportunity-card" style="border-left-color: #FF9800;">
+                <div class="opportunity-header">
+                    <span class="keyword-badge">3. timezone</span>
+                    <div>
+                        <span class="score-badge" style="background: #FF9800;">⭐ 58.2/100</span>
+                        <span class="score-badge ">🟡 WATCH</span>
+                    </div>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric"><div class="metric-label">用户意图</div><div class="metric-value">explore</div></div>
+                    <div class="metric"><div class="metric-label">用户目标</div><div class="metric-value">浏览了解</div></div>
+                    <div class="metric"><div class="metric-label">意图清晰度</div><div class="metric-value">高</div></div>
+                    <div class="metric"><div class="metric-label">搜索量</div><div class="metric-value">中 (~3K/月)</div></div>
+                    <div class="metric"><div class="metric-label">需求强度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">竞争度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">GPTs 热度</div><div class="metric-value">7.0%</div></div>
+                    <div class="metric"><div class="metric-label">Reddit 评分</div><div class="metric-value">92</div></div>
+                </div>
+                <div style="margin-top:10px;"><span style="color:#666;">痛点:</span> <span class="pain-tag">无明显痛点</span></div>
+                <div class="evidence-box"><strong>需求验证来源:</strong> Reddit 多条讨论 | 细分市场需求增长</div>
+                <div class="competitors-box"><strong>前 3 名竞争对手:</strong> stackoverflow.com, github.com, medium.com</div>
+                <div class="reasoning-box"><strong>判断理由:</strong> GPTs 流量比达标 (7.0%) | Reddit 痛点讨论活跃 (92) | 细分市场，竞争度低</div>
+                <div class="suggestion-box"><strong>开发建议:</strong> 细分市场，差异化竞争</div>
+            </div>
+
+            <div class="opportunity-card" style="border-left-color: #FF9800;">
+                <div class="opportunity-header">
+                    <span class="keyword-badge">4. timestamp with examples</span>
+                    <div>
+                        <span class="score-badge" style="background: #FF9800;">⭐ 58.2/100</span>
+                        <span class="score-badge ">🟡 WATCH</span>
+                    </div>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric"><div class="metric-label">用户意图</div><div class="metric-value">explore</div></div>
+                    <div class="metric"><div class="metric-label">用户目标</div><div class="metric-value">浏览了解</div></div>
+                    <div class="metric"><div class="metric-label">意图清晰度</div><div class="metric-value">高</div></div>
+                    <div class="metric"><div class="metric-label">搜索量</div><div class="metric-value">中 (~3K/月)</div></div>
+                    <div class="metric"><div class="metric-label">需求强度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">竞争度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">GPTs 热度</div><div class="metric-value">7.0%</div></div>
+                    <div class="metric"><div class="metric-label">Reddit 评分</div><div class="metric-value">92</div></div>
+                </div>
+                <div style="margin-top:10px;"><span style="color:#666;">痛点:</span> <span class="pain-tag">无明显痛点</span></div>
+                <div class="evidence-box"><strong>需求验证来源:</strong> Reddit 多条讨论 | 细分市场需求增长</div>
+                <div class="competitors-box"><strong>前 3 名竞争对手:</strong> stackoverflow.com, github.com, medium.com</div>
+                <div class="reasoning-box"><strong>判断理由:</strong> GPTs 流量比达标 (7.0%) | Reddit 痛点讨论活跃 (92) | 细分市场，竞争度低</div>
+                <div class="suggestion-box"><strong>开发建议:</strong> 细分市场，差异化竞争</div>
+            </div>
+
+            <div class="opportunity-card" style="border-left-color: #FF9800;">
+                <div class="opportunity-header">
+                    <span class="keyword-badge">5. macros</span>
+                    <div>
+                        <span class="score-badge" style="background: #FF9800;">⭐ 58.2/100</span>
+                        <span class="score-badge ">🟡 WATCH</span>
+                    </div>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric"><div class="metric-label">用户意图</div><div class="metric-value">explore</div></div>
+                    <div class="metric"><div class="metric-label">用户目标</div><div class="metric-value">浏览了解</div></div>
+                    <div class="metric"><div class="metric-label">意图清晰度</div><div class="metric-value">高</div></div>
+                    <div class="metric"><div class="metric-label">搜索量</div><div class="metric-value">中 (~3K/月)</div></div>
+                    <div class="metric"><div class="metric-label">需求强度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">竞争度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">GPTs 热度</div><div class="metric-value">7.0%</div></div>
+                    <div class="metric"><div class="metric-label">Reddit 评分</div><div class="metric-value">92</div></div>
+                </div>
+                <div style="margin-top:10px;"><span style="color:#666;">痛点:</span> <span class="pain-tag">无明显痛点</span></div>
+                <div class="evidence-box"><strong>需求验证来源:</strong> Reddit 多条讨论 | 细分市场需求增长</div>
+                <div class="competitors-box"><strong>前 3 名竞争对手:</strong> stackoverflow.com, github.com, medium.com</div>
+                <div class="reasoning-box"><strong>判断理由:</strong> GPTs 流量比达标 (7.0%) | Reddit 痛点讨论活跃 (92) | 细分市场，竞争度低</div>
+                <div class="suggestion-box"><strong>开发建议:</strong> 细分市场，差异化竞争</div>
+            </div>
+
+            <div class="opportunity-card" style="border-left-color: #FF9800;">
+                <div class="opportunity-header">
+                    <span class="keyword-badge">6. xml</span>
+                    <div>
+                        <span class="score-badge" style="background: #FF9800;">⭐ 58.2/100</span>
+                        <span class="score-badge ">🟡 WATCH</span>
+                    </div>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric"><div class="metric-label">用户意图</div><div class="metric-value">explore</div></div>
+                    <div class="metric"><div class="metric-label">用户目标</div><div class="metric-value">浏览了解</div></div>
+                    <div class="metric"><div class="metric-label">意图清晰度</div><div class="metric-value">高</div></div>
+                    <div class="metric"><div class="metric-label">搜索量</div><div class="metric-value">中 (~3K/月)</div></div>
+                    <div class="metric"><div class="metric-label">需求强度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">竞争度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">GPTs 热度</div><div class="metric-value">7.0%</div></div>
+                    <div class="metric"><div class="metric-label">Reddit 评分</div><div class="metric-value">92</div></div>
+                </div>
+                <div style="margin-top:10px;"><span style="color:#666;">痛点:</span> <span class="pain-tag">无明显痛点</span></div>
+                <div class="evidence-box"><strong>需求验证来源:</strong> Reddit 多条讨论 | 细分市场需求增长</div>
+                <div class="competitors-box"><strong>前 3 名竞争对手:</strong> stackoverflow.com, github.com, medium.com</div>
+                <div class="reasoning-box"><strong>判断理由:</strong> GPTs 流量比达标 (7.0%) | Reddit 痛点讨论活跃 (92) | 细分市场，竞争度低</div>
+                <div class="suggestion-box"><strong>开发建议:</strong> 细分市场，差异化竞争</div>
+            </div>
+
+            <div class="opportunity-card" style="border-left-color: #FF9800;">
+                <div class="opportunity-header">
+                    <span class="keyword-badge">7. regex for business</span>
+                    <div>
+                        <span class="score-badge" style="background: #FF9800;">⭐ 58.2/100</span>
+                        <span class="score-badge ">🟡 WATCH</span>
+                    </div>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric"><div class="metric-label">用户意图</div><div class="metric-value">explore</div></div>
+                    <div class="metric"><div class="metric-label">用户目标</div><div class="metric-value">浏览了解</div></div>
+                    <div class="metric"><div class="metric-label">意图清晰度</div><div class="metric-value">高</div></div>
+                    <div class="metric"><div class="metric-label">搜索量</div><div class="metric-value">中 (~3K/月)</div></div>
+                    <div class="metric"><div class="metric-label">需求强度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">竞争度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">GPTs 热度</div><div class="metric-value">7.0%</div></div>
+                    <div class="metric"><div class="metric-label">Reddit 评分</div><div class="metric-value">92</div></div>
+                </div>
+                <div style="margin-top:10px;"><span style="color:#666;">痛点:</span> <span class="pain-tag">无明显痛点</span></div>
+                <div class="evidence-box"><strong>需求验证来源:</strong> Reddit 多条讨论 | 细分市场需求增长</div>
+                <div class="competitors-box"><strong>前 3 名竞争对手:</strong> stackoverflow.com, github.com, medium.com</div>
+                <div class="reasoning-box"><strong>判断理由:</strong> GPTs 流量比达标 (7.0%) | Reddit 痛点讨论活跃 (92) | 细分市场，竞争度低</div>
+                <div class="suggestion-box"><strong>开发建议:</strong> 细分市场，差异化竞争</div>
+            </div>
+
+            <div class="opportunity-card" style="border-left-color: #FF9800;">
+                <div class="opportunity-header">
+                    <span class="keyword-badge">8. admission</span>
+                    <div>
+                        <span class="score-badge" style="background: #FF9800;">⭐ 58.2/100</span>
+                        <span class="score-badge ">🟡 WATCH</span>
+                    </div>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric"><div class="metric-label">用户意图</div><div class="metric-value">explore</div></div>
+                    <div class="metric"><div class="metric-label">用户目标</div><div class="metric-value">浏览了解</div></div>
+                    <div class="metric"><div class="metric-label">意图清晰度</div><div class="metric-value">高</div></div>
+                    <div class="metric"><div class="metric-label">搜索量</div><div class="metric-value">中 (~3K/月)</div></div>
+                    <div class="metric"><div class="metric-label">需求强度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">竞争度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">GPTs 热度</div><div class="metric-value">7.0%</div></div>
+                    <div class="metric"><div class="metric-label">Reddit 评分</div><div class="metric-value">92</div></div>
+                </div>
+                <div style="margin-top:10px;"><span style="color:#666;">痛点:</span> <span class="pain-tag">无明显痛点</span></div>
+                <div class="evidence-box"><strong>需求验证来源:</strong> Reddit 多条讨论 | 细分市场需求增长</div>
+                <div class="competitors-box"><strong>前 3 名竞争对手:</strong> stackoverflow.com, github.com, medium.com</div>
+                <div class="reasoning-box"><strong>判断理由:</strong> GPTs 流量比达标 (7.0%) | Reddit 痛点讨论活跃 (92) | 细分市场，竞争度低</div>
+                <div class="suggestion-box"><strong>开发建议:</strong> 细分市场，差异化竞争</div>
+            </div>
+
+            <div class="opportunity-card" style="border-left-color: #FF9800;">
+                <div class="opportunity-header">
+                    <span class="keyword-badge">9. macros step by step</span>
+                    <div>
+                        <span class="score-badge" style="background: #FF9800;">⭐ 58.0/100</span>
+                        <span class="score-badge ">🟡 WATCH</span>
+                    </div>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric"><div class="metric-label">用户意图</div><div class="metric-value">explore</div></div>
+                    <div class="metric"><div class="metric-label">用户目标</div><div class="metric-value">浏览了解</div></div>
+                    <div class="metric"><div class="metric-label">意图清晰度</div><div class="metric-value">高</div></div>
+                    <div class="metric"><div class="metric-label">搜索量</div><div class="metric-value">低 (~1K/月)</div></div>
+                    <div class="metric"><div class="metric-label">需求强度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">竞争度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">GPTs 热度</div><div class="metric-value">5.6%</div></div>
+                    <div class="metric"><div class="metric-label">Reddit 评分</div><div class="metric-value">92</div></div>
+                </div>
+                <div style="margin-top:10px;"><span style="color:#666;">痛点:</span> <span class="pain-tag">无明显痛点</span></div>
+                <div class="evidence-box"><strong>需求验证来源:</strong> Reddit 多条讨论 | 细分市场需求增长</div>
+                <div class="competitors-box"><strong>前 3 名竞争对手:</strong> stackoverflow.com, github.com, medium.com</div>
+                <div class="reasoning-box"><strong>判断理由:</strong> GPTs 流量比达标 (5.6%) | Reddit 痛点讨论活跃 (92) | 细分市场，竞争度低</div>
+                <div class="suggestion-box"><strong>开发建议:</strong> 细分市场，差异化竞争</div>
+            </div>
+
+            <div class="opportunity-card" style="border-left-color: #FF9800;">
+                <div class="opportunity-header">
+                    <span class="keyword-badge">10. carb free online</span>
+                    <div>
+                        <span class="score-badge" style="background: #FF9800;">⭐ 55.9/100</span>
+                        <span class="score-badge ">🟡 WATCH</span>
+                    </div>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric"><div class="metric-label">用户意图</div><div class="metric-value">explore</div></div>
+                    <div class="metric"><div class="metric-label">用户目标</div><div class="metric-value">浏览了解</div></div>
+                    <div class="metric"><div class="metric-label">意图清晰度</div><div class="metric-value">高</div></div>
+                    <div class="metric"><div class="metric-label">搜索量</div><div class="metric-value">高 (~10K/月)</div></div>
+                    <div class="metric"><div class="metric-label">需求强度</div><div class="metric-value">强</div></div>
+                    <div class="metric"><div class="metric-label">竞争度</div><div class="metric-value">中</div></div>
+                    <div class="metric"><div class="metric-label">GPTs 热度</div><div class="metric-value">19.2%</div></div>
+                    <div class="metric"><div class="metric-label">Reddit 评分</div><div class="metric-value">80</div></div>
+                </div>
+                <div style="margin-top:10px;"><span style="color:#666;">痛点:</span> <span class="pain-tag">无明显痛点</span></div>
+                <div class="evidence-box"><strong>需求验证来源:</strong> Reddit 多条讨论 | Google 搜索量稳定 | 细分市场需求增长</div>
+                <div class="competitors-box"><strong>前 3 名竞争对手:</strong> stackoverflow.com, github.com, medium.com</div>
+                <div class="reasoning-box"><strong>判断理由:</strong> GPTs 流量比达标 (19.2%) | Reddit 痛点讨论活跃 (80) | 细分市场，竞争度低</div>
+                <div class="suggestion-box"><strong>开发建议:</strong> 细分市场，差异化竞争 | 免费在线工具，用户增长快</div>
+            </div>
+
+            <h2 class="section-title">完整数据表 (TOP 100)</h2>
+            <div style="overflow-x:auto;">
+                <table class="data-table">
+                    <thead>
+                        <tr><th>#</th><th>关键词</th><th>评分</th><th>用户意图</th><th>需求强度</th><th>GPTs 热度</th><th>决策</th></tr>
+                    </thead>
+                    <tbody>
+<tr>
+                        <td>1</td>
+                        <td><strong>retirement free online</strong></td>
+                        <td style="color:#FF9800"><strong>60.0</strong></td>
+                        <td>explore</td>
+                        <td>强</td>
+                        <td>18.8%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>2</td>
+                        <td><strong>calorie without login</strong></td>
+                        <td style="color:#FF9800"><strong>58.2</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>3</td>
+                        <td><strong>timezone</strong></td>
+                        <td style="color:#FF9800"><strong>58.2</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>4</td>
+                        <td><strong>timestamp with examples</strong></td>
+                        <td style="color:#FF9800"><strong>58.2</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>5</td>
+                        <td><strong>macros</strong></td>
+                        <td style="color:#FF9800"><strong>58.2</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>6</td>
+                        <td><strong>xml</strong></td>
+                        <td style="color:#FF9800"><strong>58.2</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>7</td>
+                        <td><strong>regex for business</strong></td>
+                        <td style="color:#FF9800"><strong>58.2</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>8</td>
+                        <td><strong>admission</strong></td>
+                        <td style="color:#FF9800"><strong>58.2</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>9</td>
+                        <td><strong>macros step by step</strong></td>
+                        <td style="color:#FF9800"><strong>58.0</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>5.6%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>10</td>
+                        <td><strong>carb free online</strong></td>
+                        <td style="color:#FF9800"><strong>55.9</strong></td>
+                        <td>explore</td>
+                        <td>强</td>
+                        <td>19.2%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>11</td>
+                        <td><strong>mortgage template</strong></td>
+                        <td style="color:#FF9800"><strong>54.0</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>12</td>
+                        <td><strong>mortgage download</strong></td>
+                        <td style="color:#FF9800"><strong>54.0</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>13</td>
+                        <td><strong>json maker</strong></td>
+                        <td style="color:#FF9800"><strong>54.0</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>14</td>
+                        <td><strong>gpa for beginners</strong></td>
+                        <td style="color:#FF9800"><strong>54.0</strong></td>
+                        <td>learn</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>15</td>
+                        <td><strong>hash no sign up</strong></td>
+                        <td style="color:#FF9800"><strong>53.8</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>5.6%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>16</td>
+                        <td><strong>timestamp no sign up</strong></td>
+                        <td style="color:#FF9800"><strong>53.8</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>5.6%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>17</td>
+                        <td><strong>loan no sign up</strong></td>
+                        <td style="color:#FF9800"><strong>53.8</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>5.6%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>18</td>
+                        <td><strong>base64 easy to use</strong></td>
+                        <td style="color:#FF9800"><strong>53.8</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>5.6%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>19</td>
+                        <td><strong>loan easy to use</strong></td>
+                        <td style="color:#FF9800"><strong>53.8</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>5.6%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>20</td>
+                        <td><strong>grade free online</strong></td>
+                        <td style="color:#FF9800"><strong>52.4</strong></td>
+                        <td>explore</td>
+                        <td>强</td>
+                        <td>14.4%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>21</td>
+                        <td><strong>calculator easy to use</strong></td>
+                        <td style="color:#FF9800"><strong>51.8</strong></td>
+                        <td>calculate</td>
+                        <td>强</td>
+                        <td>10.3%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>22</td>
+                        <td><strong>calculator free online</strong></td>
+                        <td style="color:#FF9800"><strong>51.4</strong></td>
+                        <td>calculate</td>
+                        <td>中</td>
+                        <td>8.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>23</td>
+                        <td><strong>base64 free online</strong></td>
+                        <td style="color:#FF9800"><strong>50.7</strong></td>
+                        <td>explore</td>
+                        <td>强</td>
+                        <td>12.8%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>24</td>
+                        <td><strong>score</strong></td>
+                        <td style="color:#FF9800"><strong>50.7</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>25</td>
+                        <td><strong>visualizer for beginners</strong></td>
+                        <td style="color:#FF9800"><strong>50.7</strong></td>
+                        <td>learn</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>26</td>
+                        <td><strong>creator maker</strong></td>
+                        <td style="color:#FF9800"><strong>50.7</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>27</td>
+                        <td><strong>comparer for students</strong></td>
+                        <td style="color:#FF9800"><strong>50.7</strong></td>
+                        <td>compare</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>28</td>
+                        <td><strong>resizer maker</strong></td>
+                        <td style="color:#FF9800"><strong>50.7</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>29</td>
+                        <td><strong>weight for business</strong></td>
+                        <td style="color:#FF9800"><strong>50.7</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>30</td>
+                        <td><strong>editor without login</strong></td>
+                        <td style="color:#FF9800"><strong>50.7</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>31</td>
+                        <td><strong>tax for business</strong></td>
+                        <td style="color:#FF9800"><strong>50.7</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>32</td>
+                        <td><strong>url template</strong></td>
+                        <td style="color:#FF9800"><strong>50.7</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>33</td>
+                        <td><strong>rotator for students</strong></td>
+                        <td style="color:#FF9800"><strong>50.7</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>34</td>
+                        <td><strong>encryptor for beginners</strong></td>
+                        <td style="color:#FF9800"><strong>50.7</strong></td>
+                        <td>learn</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>35</td>
+                        <td><strong>comparer for beginners</strong></td>
+                        <td style="color:#FF9800"><strong>50.7</strong></td>
+                        <td>learn,compare</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>36</td>
+                        <td><strong>maker</strong></td>
+                        <td style="color:#FF9800"><strong>50.7</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>37</td>
+                        <td><strong>compressor easy to use</strong></td>
+                        <td style="color:#FF9800"><strong>50.6</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>2.4%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>38</td>
+                        <td><strong>encryptor no sign up</strong></td>
+                        <td style="color:#FF9800"><strong>50.6</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>2.4%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>39</td>
+                        <td><strong>url step by step</strong></td>
+                        <td style="color:#FF9800"><strong>50.6</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>2.4%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>40</td>
+                        <td><strong>investment step by step</strong></td>
+                        <td style="color:#FF9800"><strong>50.6</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>2.4%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>41</td>
+                        <td><strong>formatter step by step</strong></td>
+                        <td style="color:#FF9800"><strong>50.6</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>2.4%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>42</td>
+                        <td><strong>qrcode step by step</strong></td>
+                        <td style="color:#FF9800"><strong>50.6</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>2.4%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>43</td>
+                        <td><strong>loan maker</strong></td>
+                        <td style="color:#FF9800"><strong>49.8</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>44</td>
+                        <td><strong>loan for business</strong></td>
+                        <td style="color:#FF9800"><strong>49.8</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>45</td>
+                        <td><strong>xml with examples</strong></td>
+                        <td style="color:#FF9800"><strong>49.8</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>46</td>
+                        <td><strong>timezone with examples</strong></td>
+                        <td style="color:#FF9800"><strong>49.8</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>47</td>
+                        <td><strong>regex easy to use</strong></td>
+                        <td style="color:#FF9800"><strong>49.6</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>5.6%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>48</td>
+                        <td><strong>base64 no sign up</strong></td>
+                        <td style="color:#FF9800"><strong>49.6</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>5.6%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>49</td>
+                        <td><strong>retirement easy to use</strong></td>
+                        <td style="color:#FF9800"><strong>49.6</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>5.6%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>50</td>
+                        <td><strong>editor free online</strong></td>
+                        <td style="color:#FF9800"><strong>48.3</strong></td>
+                        <td>explore</td>
+                        <td>强</td>
+                        <td>15.3%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>51</td>
+                        <td><strong>planner template</strong></td>
+                        <td style="color:#FF9800"><strong>48.1</strong></td>
+                        <td>explore</td>
+                        <td>强</td>
+                        <td>14.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>52</td>
+                        <td><strong>formatter free online</strong></td>
+                        <td style="color:#FF9800"><strong>47.8</strong></td>
+                        <td>explore</td>
+                        <td>强</td>
+                        <td>11.8%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>53</td>
+                        <td><strong>converter with examples</strong></td>
+                        <td style="color:#FF9800"><strong>47.5</strong></td>
+                        <td>convert</td>
+                        <td>强</td>
+                        <td>10.2%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>54</td>
+                        <td><strong>tracker for students</strong></td>
+                        <td style="color:#FF9800"><strong>47.5</strong></td>
+                        <td>explore</td>
+                        <td>强</td>
+                        <td>10.2%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>55</td>
+                        <td><strong>mortgage free online</strong></td>
+                        <td style="color:#FF9800"><strong>47.4</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>18.7%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>56</td>
+                        <td><strong>planner no sign up</strong></td>
+                        <td style="color:#FF9800"><strong>47.4</strong></td>
+                        <td>explore</td>
+                        <td>强</td>
+                        <td>9.4%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>57</td>
+                        <td><strong>calculator maker</strong></td>
+                        <td style="color:#FF9800"><strong>47.2</strong></td>
+                        <td>calculate</td>
+                        <td>中</td>
+                        <td>7.7%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>58</td>
+                        <td><strong>macros free online</strong></td>
+                        <td style="color:#FF9800"><strong>46.9</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>15.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>59</td>
+                        <td><strong>grade download</strong></td>
+                        <td style="color:#FF9800"><strong>46.5</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>60</td>
+                        <td><strong>rotator maker</strong></td>
+                        <td style="color:#FF9800"><strong>46.5</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>61</td>
+                        <td><strong>creator</strong></td>
+                        <td style="color:#FF9800"><strong>46.5</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>62</td>
+                        <td><strong>color maker</strong></td>
+                        <td style="color:#FF9800"><strong>46.5</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>63</td>
+                        <td><strong>color template</strong></td>
+                        <td style="color:#FF9800"><strong>46.5</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>64</td>
+                        <td><strong>compressor download</strong></td>
+                        <td style="color:#FF9800"><strong>46.5</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>65</td>
+                        <td><strong>creator for beginners</strong></td>
+                        <td style="color:#FF9800"><strong>46.5</strong></td>
+                        <td>learn</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>66</td>
+                        <td><strong>splitter template</strong></td>
+                        <td style="color:#FF9800"><strong>46.5</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>67</td>
+                        <td><strong>investment with examples</strong></td>
+                        <td style="color:#FF9800"><strong>46.5</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>68</td>
+                        <td><strong>builder for students</strong></td>
+                        <td style="color:#FF9800"><strong>46.5</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>69</td>
+                        <td><strong>decoder for students</strong></td>
+                        <td style="color:#FF9800"><strong>46.5</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>70</td>
+                        <td><strong>optimizer with examples</strong></td>
+                        <td style="color:#FF9800"><strong>46.5</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>71</td>
+                        <td><strong>solver without login</strong></td>
+                        <td style="color:#FF9800"><strong>46.5</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>72</td>
+                        <td><strong>decryptor easy to use</strong></td>
+                        <td style="color:#FF9800"><strong>46.4</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>2.4%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>73</td>
+                        <td><strong>html easy to use</strong></td>
+                        <td style="color:#FF9800"><strong>46.4</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>2.4%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>74</td>
+                        <td><strong>maker easy to use</strong></td>
+                        <td style="color:#FF9800"><strong>46.4</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>2.4%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>75</td>
+                        <td><strong>password step by step</strong></td>
+                        <td style="color:#FF9800"><strong>46.4</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>2.4%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>76</td>
+                        <td><strong>qrcode no sign up</strong></td>
+                        <td style="color:#FF9800"><strong>46.4</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>2.4%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>77</td>
+                        <td><strong>xml download</strong></td>
+                        <td style="color:#FF9800"><strong>45.6</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>78</td>
+                        <td><strong>xml template</strong></td>
+                        <td style="color:#FF9800"><strong>45.6</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>79</td>
+                        <td><strong>json with examples</strong></td>
+                        <td style="color:#FF9800"><strong>45.6</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>80</td>
+                        <td><strong>json easy to use</strong></td>
+                        <td style="color:#FF9800"><strong>45.4</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>5.6%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>81</td>
+                        <td><strong>loan step by step</strong></td>
+                        <td style="color:#FF9800"><strong>45.4</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>5.6%</td>
+                        <td style="color:#FF9800;">🟡 WATCH</td>
+                    </tr>
+<tr>
+                        <td>82</td>
+                        <td><strong>creator free online</strong></td>
+                        <td style="color:#9e9e9e"><strong>43.5</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>11.6%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>83</td>
+                        <td><strong>uuid free online</strong></td>
+                        <td style="color:#9e9e9e"><strong>43.4</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>10.9%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>84</td>
+                        <td><strong>planner</strong></td>
+                        <td style="color:#9e9e9e"><strong>43.2</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>9.4%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>85</td>
+                        <td><strong>tracker template</strong></td>
+                        <td style="color:#9e9e9e"><strong>43.1</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>8.9%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>86</td>
+                        <td><strong>converter step by step</strong></td>
+                        <td style="color:#9e9e9e"><strong>43.0</strong></td>
+                        <td>convert</td>
+                        <td>中</td>
+                        <td>7.8%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>87</td>
+                        <td><strong>checker without login</strong></td>
+                        <td style="color:#9e9e9e"><strong>42.9</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.1%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>88</td>
+                        <td><strong>css template</strong></td>
+                        <td style="color:#9e9e9e"><strong>42.2</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>89</td>
+                        <td><strong>investment template</strong></td>
+                        <td style="color:#9e9e9e"><strong>42.2</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>90</td>
+                        <td><strong>builder download</strong></td>
+                        <td style="color:#9e9e9e"><strong>42.2</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>91</td>
+                        <td><strong>editor for beginners</strong></td>
+                        <td style="color:#9e9e9e"><strong>42.2</strong></td>
+                        <td>learn</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>92</td>
+                        <td><strong>css easy to use</strong></td>
+                        <td style="color:#9e9e9e"><strong>42.2</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>2.4%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>93</td>
+                        <td><strong>formatter</strong></td>
+                        <td style="color:#9e9e9e"><strong>42.2</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>94</td>
+                        <td><strong>decoder</strong></td>
+                        <td style="color:#9e9e9e"><strong>42.2</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>95</td>
+                        <td><strong>encoder maker</strong></td>
+                        <td style="color:#9e9e9e"><strong>42.2</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>96</td>
+                        <td><strong>analyzer</strong></td>
+                        <td style="color:#9e9e9e"><strong>42.2</strong></td>
+                        <td>explore</td>
+                        <td>弱</td>
+                        <td>3.0%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>97</td>
+                        <td><strong>calorie free online</strong></td>
+                        <td style="color:#9e9e9e"><strong>42.2</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>12.0%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>98</td>
+                        <td><strong>base64 for beginners</strong></td>
+                        <td style="color:#9e9e9e"><strong>41.4</strong></td>
+                        <td>learn</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>99</td>
+                        <td><strong>admission download</strong></td>
+                        <td style="color:#9e9e9e"><strong>41.4</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+<tr>
+                        <td>100</td>
+                        <td><strong>gpa for students</strong></td>
+                        <td style="color:#9e9e9e"><strong>41.4</strong></td>
+                        <td>explore</td>
+                        <td>中</td>
+                        <td>7.0%</td>
+                        <td style="color:#9e9e9e;">❌ DROP</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            
+            <h2 class="section-title">下一步行动建议</h2>
+            <div class="action-section">
+                <h3>立即行动 (本周)</h3>
+                <ol class="action-list">
+                    <li>选择 TOP 3 关键词进行深度竞品分析</li>
+                    <li>验证 Reddit 讨论中的用户痛点是否真实</li>
+                    <li>使用 Next.js + Vercel 快速搭建 MVP</li>
+                    <li>提交网站到 Google Search Console</li>
+                </ol>
+                <h3 style="margin-top:30px;">变现策略</h3>
+                <ol class="action-list">
+                    <li>广告收入 (Google AdSense)</li>
+                    <li>联盟营销 (相关产品推荐)</li>
+                    <li>高级订阅 (高级功能付费)</li>
+                </ol>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Profit Hunter ULTIMATE | 分析时间: 2026-01-31 12:09:46 | 
+            GitHub: <a href="https://github.com/harveyzhang604/xiao8_skills">xiao8_skills</a></p>
+        </div>
+    </div>
+</body>
+</html>
